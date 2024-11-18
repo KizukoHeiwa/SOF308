@@ -1,4 +1,37 @@
+<style>
+    header {
+      background-color: aliceblue;
+      /* box-shadow: 1px 1px 2px 1px lightgray; */
+    }
+  
+    .nav-link {
+      color: black;
+    }
+  
+    .nav-link:hover {
+      color: green;
+    }
+  
+    .navbar-nav .nav-link.active,
+    .navbar-nav .nav-link.show {
+      color: green;
+    }
+  
+    .button-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .footer-content {
+      color: white;
+      text-align: center;
+    }
+</style>
+
 <template>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <header>
         <nav class="navbar navbar-expand-sm">
             <div class="container">
@@ -8,7 +41,7 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <router-link to="/post" class="nav-link">Bài viết</router-link> 
+                            <router-link to="/post" class="nav-link"><i class="fa-solid fa-list"></i> Bài viết</router-link> 
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/"><i class="fa-solid fa-film"></i> Video</a>

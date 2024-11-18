@@ -1,4 +1,37 @@
+<style>
+    header {
+      background-color: aliceblue;
+      /* box-shadow: 1px 1px 2px 1px lightgray; */
+    }
+  
+    .nav-link {
+      color: black;
+    }
+  
+    .nav-link:hover {
+      color: green;
+    }
+  
+    .navbar-nav .nav-link.active,
+    .navbar-nav .nav-link.show {
+      color: green;
+    }
+  
+    .button-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .footer-content {
+      color: white;
+      text-align: center;
+    }
+</style>
+
 <template>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <div class="container mt-5">
         <h2 class="mb-4">Thông Tin Cá Nhân</h2>
         <div class="card">
