@@ -20,5 +20,4 @@
     { id: 1, title: 'Tiêu đề 1', description: 'Mô tả 1...' },
     { id: 2, title: 'Tiêu đề 2', description: 'Mô tả 2...' },
   ]);
-  return {items};
 </script>

@@ -60,6 +60,4 @@ const addStudent = () => {
     }
   };
 
-  // return { students, newStudent, addStudent };
-
 </script>

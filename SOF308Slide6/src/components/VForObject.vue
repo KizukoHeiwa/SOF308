@@ -25,5 +25,4 @@
     { id: 2, name: 'Táo', price: '$15' },
     { id: 3, name: 'Chuối', price: '$18' },
   ]);
-  return {items};
 </script>

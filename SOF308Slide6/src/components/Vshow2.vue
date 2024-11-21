@@ -35,5 +35,4 @@
   const toggleDetails = (index) => {
     showDetails.value[index] = !showDetails.value[index];
   };
-  return { products, showDetails, toggleDetails };
 </script>

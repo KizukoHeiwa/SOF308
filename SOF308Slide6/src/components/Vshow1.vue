@@ -19,5 +19,4 @@
   const toggleVisibility = () => {
     isVisible.value = !isVisible.value;
   }   
-  return {isVisible,toggleVisibility};
 </script>

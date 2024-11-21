@@ -23,5 +23,4 @@
     'Lê Phụng Hiếu Kiên', 
     'Lê Quang Trung'
   ]); 
-  return {students};
 </script>

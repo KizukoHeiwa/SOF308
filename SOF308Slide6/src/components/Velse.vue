@@ -15,5 +15,4 @@
   import {ref} from'vue';
   
   const message = ref(true);
-  return {message};
 </script>

@@ -22,5 +22,4 @@
       step.value = 1;
     }     
   };
-  return {step,nextStep};
 </script>
