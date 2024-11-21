@@ -1,28 +1,15 @@
 <script>
-    import Modernizer from '../assets/js/vendor/modernizr-2.8.3.min.js'
-    import jQuery1 from '../assets/js/vendor/jquery-3.5.1.min.js'
-    import jQuery2 from '../assets/js/vendor/jquery-migrate-3.3.0.min.js'
-    import LightGallery from '../assets/js/plugins/lightgallery.min.js'
-    import Isotope from '../assets/js/plugins/isotope.min.js'
-    import Masonry from '../assets/js/plugins/masonry.min.js'
-    import ImagesLoaded from '../assets/js/plugins/images-loaded.min.js'
-    import Swiper from '../assets/js/plugins/swiper-bundle.min.js'
-    import AOS from '../assets/js/plugins/aos.js'
-    import Ajax from '../assets/js/plugins/ajax.mail.js'
-    import MainJS from '../assets/js/main.js'
-
-
-    Modernizer
-    jQuery1
-    jQuery2
-    LightGallery
-    Isotope
-    Masonry
-    ImagesLoaded
-    Swiper
-    AOS
-    Ajax
-    MainJS
+    import '../assets/js/vendor/modernizr-2.8.3.min.js'
+    import '../assets/js/vendor/jquery-3.5.1.min.js'
+    import '../assets/js/vendor/jquery-migrate-3.3.0.min.js'
+    import '../assets/js/plugins/lightgallery.min.js'
+    import '../assets/js/plugins/isotope.min.js'
+    import '../assets/js/plugins/masonry.min.js'
+    import '../assets/js/plugins/images-loaded.min.js'
+    import '../assets/js/plugins/swiper-bundle.min.js'
+    import '../assets/js/plugins/aos.js'
+    import '../assets/js/plugins/ajax.mail.js'
+    import '../assets/js/main.js'
 </script>
 
 <template>
