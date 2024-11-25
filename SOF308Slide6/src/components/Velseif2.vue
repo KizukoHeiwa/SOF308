@@ -7,6 +7,10 @@
     <p v-else-if="score >= 6.5">Khá</p>
     <p v-else-if="score >= 5">Trung bình</p>
     <p v-else>Yếu</p>
+    <span class="test" v-for="i in score">{{ i }}
+      <span v-if="i === score"> = {{ score*1 + (score*(score-1))/2 }}</span>
+      <span v-else> + </span>
+    </span>
   </div>
 </template>
 

@@ -9,7 +9,10 @@
     <hr>
     <h1>V-RANGE</h1>
     <ul>
-        <li v-for="i in 10">Số {{ i }}</li>
+        <li v-for="i in 20">
+          <h1 v-if="(i-1) % 5 === 0 || i === 1">{{ i-1 }} - {{ i + 3 }}</h1>
+          Số {{ i-1 }}
+        </li>
     </ul>
   </div>
 </template>

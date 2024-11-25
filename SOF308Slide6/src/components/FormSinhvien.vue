@@ -19,9 +19,19 @@
     <div class="col-sm-8">
     <h3 class="mb-4 text-danger">Danh sách sinh viên</h3>
     <ul class="list-group">
-      <li class="list-group-item" v-for="(student, index) in students" >
-        {{ student.name }} - {{ student.age }} tuổi
-      </li>
+      <h1>16 - 20 tuổi</h1>
+      <div class="1620" v-for="(student, index) in students">
+        <li class="list-group-item" v-if="student.age >= 16 && student.age <= 20">
+            {{ student.name }} - {{ student.age }} tuổi
+        </li>
+      </div>
+
+      <h1>21 - 30 tuổi</h1>
+      <div class="2130" v-for="(student, index) in students">
+        <li class="list-group-item" v-if="student.age >= 21 && student.age <= 30">
+            {{ student.name }} - {{ student.age }} tuổi
+        </li>
+      </div>
     </ul>
     </div>
   </div>
