@@ -174,71 +174,18 @@
                 <h4 class="fw-bold">Tất cả bài viết</h4>
                 <div class="row">
 
-                    <div class="col-md-6 mb-4 d-flex align-items-stretch">
-                        <div class="card">
-                            <h5 class="card-title bg-secondary-subtle px-3 py-2">Phương pháp tập Pilates giúp phục hồi
-                                chấn thương cột sống <i class="fa-solid fa-message"></i> 16</h5>
+                    <div class="col-md-6 mb-4 d-flex align-items-stretch" v-for="baiViet in listBaiViet">
+                        <div class="card w-100">
+                            <h5 class="card-title bg-secondary-subtle px-3 py-2">{{ baiViet.title }} <i class="fa-solid fa-message"></i> {{ baiViet.views }}</h5>
                             <router-link to="/postDetail" class="text-decoration-none">
                                 <div class="card-body">
-                                    <img :src="items[5].image" class="card-img" alt="bigThumbnail">
-                                    <p class="card-text text-muted">Ngoài việc giúp duy trì vóc dáng, cải thiện sức bền
-                                        và độ dẻo dai, các
-                                        bài tập Pilates còn có khả năng trị liệu, là giải pháp hữu hiệu để phục hồi chấn
-                                        thương cột sống...
-                                    </p>
+                                    <img :src="baiViet.img" class="card-img" alt="bigThumbnail">
+                                    <p class="card-text text-muted">{{ baiViet.desc }}</p>
                                 </div>
                             </router-link>
                         </div>
                     </div>
 
-                    <div class="col-md-6 mb-4 d-flex align-items-stretch">
-                        <div class="card">
-                            <h5 class="card-title bg-secondary-subtle px-3 py-2">Đây là những gì 1 giờ Tập Pilates có
-                                thể làm cho cơ thể của bạn <i class="fa-solid fa-message"></i> 8</h5>
-                            <router-link to="/postDetail" class="text-decoration-none">
-                                <div class="card-body">
-                                    <img :src="items[6].image" class="card-img" alt="bigThumbnail">
-                                    <p class="card-text text-muted">Được thiết kế để xây dựng cơ bắp săn chắc, khỏe mạnh
-                                        hơn, bài tập này đã
-                                        trở thành một cái tên quen thuộc đối với rất nhiều người nổi tiếng theo đuổi...
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente recusandae
-                                        autem mollitia quis, totam reprehenderit sint sunt distinctio repellendus
-                                        obcaecati assumenda consequuntur ullam odio culpa harum at sit facilis
-                                        consectetur?</p>
-                                </div>
-                            </router-link>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-4 d-flex align-items-stretch">
-                        <div class="card">
-                            <h5 class="card-title bg-secondary-subtle px-3 py-2">Tập Pilates có thể cải thiện sức khỏe
-                                tim mạch của bạn <i class="fa-solid fa-message"></i> 5</h5>
-                            <a href="postDetail.html" class="text-decoration-none">
-                                <div class="card-body">
-                                    <img :src="items[16].image" class="card-img" alt="bigThumbnail">
-                                    <p class="card-text text-muted">Tập Pilates không chỉ giúp bạn có một cơ thể khỏe
-                                        mạnh và linh hoạt mà
-                                        còn có nhiều lợi ích cho sức khỏe tim mạch...</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 mb-4 d-flex align-items-stretch">
-                        <div class="card">
-                            <h5 class="card-title bg-secondary-subtle px-3 py-2">EAT CLEAN: Nên Và Không Nên Ăn Thực
-                                Phẩm Nào? <i class="fa-solid fa-message"></i> 3</h5>
-                            <a href="postDetail.html" class="text-decoration-none">
-                                <div class="card-body">
-                                    <img :src="items[15].image" class="card-img" alt="bigThumbnail">
-                                    <p class="card-text text-muted">Chúng ta luôn chú trọng lựa chọn thực phẩm sạch và
-                                        duy trì lối sống lành
-                                        mạnh...</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Phân trang -->
@@ -261,6 +208,7 @@
     </footer>
 </template>
 <script setup>
+import { ref } from 'vue';
 import logo from '../assets/images/logo-energy-pilates.png';
 import banner1 from '../assets/images/banner1.jpg';
 import banner2 from '../assets/images/banner2.jpg';
@@ -283,9 +231,37 @@ const listBaiViet = ref ([
     {
         title: `Phương pháp tập Pilates giúp phục hồi chấn thương cột sống`,
         img: tappilates,
-        desc: `Ngoài việc giúp duy trì vóc dáng,
-            cải thiện sức bền và độ dẻo dai cho người tập...`,
+        desc: `Ngoài việc giúp duy trì vóc dáng, cải thiện sức bền
+                và độ dẻo dai, các bài tập Pilates còn có khả năng trị liệu,
+                là giải pháp hữu hiệu để phục hồi chấn thương cột sống...`,
         views: 16
+    },
+
+    {
+        title: `Đây là những gì 1 giờ Tập Pilates có thể làm cho cơ thể của bạn`,
+        img: tappilates1,
+        desc: `Được thiết kế để xây dựng cơ bắp săn chắc, khỏe mạnh hơn,
+                bài tập này đã trở thành một cái tên quen thuộc đối với rất nhiều người nổi tiếng theo đuổi...
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente recusandae
+                autem mollitia quis, totam reprehenderit sint sunt distinctio repellendus obcaecati
+                assumenda consequuntur ullam odio culpa harum at sit facilis consectetur?`,
+        views: 8
+    },
+
+    {
+        title: `Tập Pilates có thể cải thiện sức khỏe tim mạch của bạn`,
+        img: timmach,
+        desc: `Tập Pilates không chỉ giúp bạn có một cơ thể khỏe mạnh
+                và linh hoạt mà còn có nhiều lợi ích cho sức khỏe tim mạch...`,
+        views: 5
+    },
+
+    {
+        title: `EAT CLEAN: Nên Và Không Nên Ăn Thực Phẩm Nào?`,
+        img: eatclean,
+        desc: `Chúng ta luôn chú trọng lựa chọn thực phẩm sạch
+                và duy trì lối sống lành mạnh...`,
+        views: 3
     },
 
     {
