@@ -15,7 +15,7 @@ import {RouterView} from 'vue-router'
   <comments></comments>
   <information></information> -->
 
-<RouterView/>
+  <RouterView/>
 
 
 

@@ -47,8 +47,8 @@
                             <a class="nav-link" href="/"><i class="fa-solid fa-film"></i> Video</a>
                         </li>
                         <li class="nav-item">
-                            <rounter-link to="/postDetails" class="nav-link"><i class="fa-solid fa-circle-info"></i>
-                                Giới thiệu</rounter-link>
+                            <router-link to="/postDetails" class="nav-link"><i class="fa-solid fa-circle-info"></i>
+                                Giới thiệu</router-link>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/"><i class="fa-solid fa-calendar-days"></i> Sự kiện</a>

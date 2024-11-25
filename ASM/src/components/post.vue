@@ -36,7 +36,7 @@
         <nav class="navbar navbar-expand-sm">
             <div class="container">
                 <a class="navbar-brand" href="/">
-                    <img :src="items[0].image" alt="logo" width="150px">
+                    <img :src="logo" alt="logo" width="150px">
                 </a>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav me-auto">
@@ -47,8 +47,8 @@
                             <a class="nav-link" href="/"><i class="fa-solid fa-film"></i> Video</a>
                         </li>
                         <li class="nav-item">
-                            <rounter-link to="/postDetails" class="nav-link"><i class="fa-solid fa-circle-info"></i>
-                                Giới thiệu</rounter-link>
+                            <router-link to="/postDetails" class="nav-link"><i class="fa-solid fa-circle-info"></i>
+                                Giới thiệu</router-link>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/"><i class="fa-solid fa-calendar-days"></i> Sự kiện</a>
@@ -91,13 +91,13 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img :src="items[1].image" class="d-block w-100" alt="banner1">
+                    <img :src="banner1" class="d-block w-100" alt="banner1">
                 </div>
                 <div class="carousel-item">
-                    <img :src="items[2].image" class="d-block w-100" alt="banner2">
+                    <img :src="banner2" class="d-block w-100" alt="banner2">
                 </div>
                 <div class="carousel-item">
-                    <img :src="items[3].image" class="d-block w-100" alt="banner3">
+                    <img :src="banner3" class="d-block w-100" alt="banner3">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -137,10 +137,7 @@
                         </div>
                         <div class="col-sm-8">
                             <h5>Lợi ích khi ăn rau mỗi ngày</h5>
-                            <span class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-                                expedita ad esse maiores quo error ea eligendi molestias fugiat distinctio,
-                                reprehenderit aliquid id veritatis. Perferendis culpa architecto adipisci hic
-                                explicabo.</span>
+                            <span class="text-muted"></span>
                         </div>
                     </div>
 
@@ -269,8 +266,8 @@ import banner1 from '../assets/images/banner1.jpg';
 import banner2 from '../assets/images/banner2.jpg';
 import banner3 from '../assets/images/banner3.jpg';
 import avatar from '../assets/images/avatar.png';
-import tagpilates from '../assets/images/tap-piltes.jpg';
-import tagpilates1 from '../assets/images/tap-pilates1.jpg';
+import tappilates from '../assets/images/tap-piltes.jpg';
+import tappilates1 from '../assets/images/tap-pilates1.jpg';
 import corevalue from '../assets/images/corevalue.jpg';
 import orange from '../assets/images/orange_300x300.jpg';
 import spinach from '../assets/images/spinach_300x300.jpg';
@@ -282,6 +279,53 @@ import video4 from '../assets/images/video4.jpg';
 import timmach from '../assets/images/tim-mach.jpg';
 import eatclean from '../assets/images/eat-clean.png';
 
+const listBaiViet = ref ([
+    {
+        title: `Phương pháp tập Pilates giúp phục hồi chấn thương cột sống`,
+        img: tappilates,
+        desc: `Ngoài việc giúp duy trì vóc dáng,
+            cải thiện sức bền và độ dẻo dai cho người tập...`,
+        views: 16
+    },
+
+    {
+        title: `Biết ơn đời, đời sẽ thương ta`,
+        img: corevalue,
+        desc: ``,
+        views: 30
+    },
+
+    {
+        title: `9 tác dụng tuyệt vời của quả cam`,
+        img: orange,
+        desc: ``,
+        views: 28
+    },
+
+    {
+        title: `Lợi ích khi ăn rau mỗi ngày` ,
+        img: spinach,
+        desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+            expedita ad esse maiores quo error ea eligendi molestias fugiat distinctio,
+            reprehenderit aliquid id veritatis. Perferendis culpa architecto adipisci hic explicabo.`,
+        views: 15
+    },
+
+    {
+        title: `10 công dụng bất ngờ từ dầu dừa`,
+        img: sesameoil,
+        desc: ``,
+        views: 12
+    }
+])
+
+const listVideos = ref ([
+    {title: 'Đi xa hơn để trưởng thành hơn', src: video1, desc: 'Tuổi trẻ chỉ nghĩ đến những chuyến đi...'},
+    {title: 'Chút tâm tư những ngày cuối năm', src: video2, desc: 'Guồng quay cuộc sống...'},
+    {title: 'Ước gì được trở về tuổi thơ', src: video3, desc: 'Tuổi thơ...'},
+    {title: 'Ba người thầy vĩ đại', src: video4, desc: 'Ta xem vạn vật là thầy...'}
+])
+
 const items = (
     [
         { image: logo }, //0 
@@ -289,8 +333,8 @@ const items = (
         { image: banner2 },//2
         { image: banner3 }, //3
         { image: avatar },//4
-        { image: tagpilates },//5
-        { image: tagpilates1 },//6
+        { image: tappilates },//5
+        { image: tappilates1 },//6
         { image: corevalue },//7
         { image: orange },//8
         { image: sesameoil },//9

@@ -36,7 +36,7 @@
         <nav class="navbar navbar-expand-sm">
             <div class="container">
                 <a class="navbar-brand" href="/">
-                    <img :src="items[0].image" alt="logo" width="150px">
+                    <img :src="logo" alt="logo" width="150px">
                 </a>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav me-auto">
@@ -47,7 +47,7 @@
                             <a class="nav-link" href="/"><i class="fa-solid fa-film"></i> Video</a>
                         </li>
                         <li class="nav-item">
-                            <rounter-link to="/post" class="nav-link"><i class="fa-solid fa-circle-info"></i> Giới thiệu</rounter-link>
+                            <router-link to="/post" class="nav-link"><i class="fa-solid fa-circle-info"></i> Giới thiệu</router-link>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/"><i class="fa-solid fa-calendar-days"></i> Sự kiện</a>
@@ -90,13 +90,13 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img :src="items[1].image" class="d-block w-100" alt="banner1">
+                    <img :src="banner1" class="d-block w-100" alt="banner1">
                 </div>
                 <div class="carousel-item">
-                    <img :src="items[2].image" class="d-block w-100" alt="banner2">
+                    <img :src="banner2" class="d-block w-100" alt="banner2">
                 </div>
                 <div class="carousel-item">
-                    <img :src="items[3].image" class="d-block w-100" alt="banner3">
+                    <img :src="banner3" class="d-block w-100" alt="banner3">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -118,7 +118,7 @@
             <div class="col-md-4">
                 <h3>Về tôi</h3>
                 <div class="card">
-                    <img :src="items[4].image" class="card-img-top" alt="Giới thiệu bản thân">
+                    <img :src="avatar" class="card-img-top" alt="Giới thiệu bản thân">
                     <div class="card-body">
                         <h5 class="card-title">Giới thiệu bản thân</h5>
                         <p class="card-text">TS. Trần Hoàng, Tổ chức Tư vấn sức khỏe quốc tế. Châm ngôn: Ta không được
@@ -133,63 +133,29 @@
                 <div class="row">
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="card mb-3">
-                            <h5 class="bg-secondary-subtle p-3">Phương pháp tập Pilates giúp phục hồi chấn thương cột
-                                sống <i class="fa-solid fa-message"></i> 16</h5>
+                            <h5 class="bg-secondary-subtle p-3">{{ listBaiViet[0].title }} <i class="fa-solid fa-message"></i> {{ listBaiViet[0].views }}</h5>
                             <div class="card-body">
-                                <img :src="items[5].image" class="card-img-top" alt="Blog">
-                                <p class="card-text">Ngoài việc giúp duy trì vóc dáng, cải thiện sức bền và độ dẻo dai
-                                    cho người tập...
-                                </p>
+                                <img :src="listBaiViet[0].img" class="card-img-top" alt="Blog">
+                                <p class="card-text">{{ listBaiViet[0].desc }}</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6 d-flex align-items-stretch">
                         <ul class="list-group mb-3">
-                            <li class="list-group-item">
+
+                            <li class="list-group-item" v-for="baiViet in listBaiViet.slice(1)">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <img :src="items[6].image" alt="thumbnail" class="float-start" width="100px">
+                                        <img :src="baiViet.img" alt="thumbnail" class="float-start" width="100px">
                                     </div>
                                     <div class="col-sm-8">
-                                        <h5 class="fw-bold">Biết ơn đời, đời sẽ thương ta</h5>
-                                        <h6><i class="fa-solid fa-message"></i> 30</h6>
+                                        <h5 class="fw-bold">{{ baiViet.title }}</h5>
+                                        <h6><i class="fa-solid fa-message"></i> {{ baiViet.views }}</h6>
                                     </div>
                                 </div>
                             </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <img :src="items[7].image" alt="thumbnail" class="float-start" width="100px">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <h5 class="fw-bold">9 tác dụng tuyệt vời của quả cam</h5>
-                                        <h6><i class="fa-solid fa-message"></i> 28</h6>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <img :src="items[8].image" alt="thumbnail" class="float-start" width="100px">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <h5 class="fw-bold">10 công dụng bất ngờ từ dầu dừa</h5>
-                                        <h6><i class="fa-solid fa-message"></i> 15</h6>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <img :src="items[9].image" alt="thumbnail" class="float-start" width="100px">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <h5 class="fw-bold">Lợi ích khi ăn rau mỗi ngày</h5>
-                                        <h6><i class="fa-solid fa-message"></i> 12</h6>
-                                    </div>
-                                </div>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -213,36 +179,28 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div id="mostRead" class="container tab-pane active"><br>
-                        <div class="row">
-                            <div class="col-sm-4 mb-2">
-                                <img :src="items[6].image" alt="thumbnail" class="float-start" width="100px">
-                            </div>
-                            <div class="col-sm-8">
-                                <h5 class="fw-bold">Biết ơn đời, đời sẽ thương ta</h5>
-                            </div>
-                        </div>
 
-                        <div class="row">
+                        <div class="row" v-for="baiViet in listBaiViet.slice(1)">
                             <div class="col-sm-4 mb-2">
-                                <img :src="items[7].image" alt="thumbnail" class="float-start" width="100px">
+                                <img :src="baiViet.img" alt="thumbnail" class="float-start" width="100px">
                             </div>
                             <div class="col-sm-8">
-                                <h5 class="fw-bold">9 tác dụng tuyệt vời của quả cam</h5>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-sm-4 mb-2">
-                                <img :src="items[8].image" alt="thumbnail" class="float-start" width="100px">
-                            </div>
-                            <div class="col-sm-8">
-                                <h5 class="fw-bold">10 công dụng bất ngờ từ dầu dừa</h5>
+                                <h5 class="fw-bold">{{ baiViet.title }}</h5>
                             </div>
                         </div>
 
                     </div>
                     <div id="mostWatches" class="container tab-pane fade"><br>
-                        <p>Nội dung tab xem nhiều</p>
+
+                        <div class="row" v-for="video in listVideos">
+                            <div class="col-sm-4 mb-2">
+                                <img :src="video.src" alt="thumbnail" class="float-start" width="100px">
+                            </div>
+                            <div class="col-sm-8">
+                                <h5 class="fw-bold">{{ video.title }}</h5>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -251,42 +209,17 @@
             <div class="col-8">
                 <div class="row">
                     <h3>Video - Đừng bỏ lỡ</h3>
-                    <div class="col-md-6 mb-3">
+
+                    <div class="col-md-6 mb-3" v-for="video in listVideos">
                         <div class="card">
-                            <img :src="items[10].image" class="card-img-top" alt="Video 1">
+                            <img :src="video.src" class="card-img-top" alt="Video">
                             <div class="card-body">
-                                <h5 class="card-title">Đi xa hơn để trưởng thành hơn</h5>
-                                <p class="card-text">Tuổi trẻ chỉ nghĩ đến những chuyến đi...</p>
+                                <h5 class="card-title">{{ video.title }}</h5>
+                                <p class="card-text">{{ video.desc }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="card">
-                            <img :src="items[11].image" class="card-img-top" alt="Video 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Chút tâm tư những ngày cuối năm</h5>
-                                <p class="card-text">Guồng quay cuộc sống...</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="card">
-                            <img :src="items[12].image" class="card-img-top" alt="Video 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Ước gì được trở về tuổi thơ</h5>
-                                <p class="card-text">Tuổi trẻ chỉ nghĩ đến những chuyến đi...</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="card">
-                            <img :src="items[13].image" class="card-img-top" alt="Video 4">
-                            <div class="card-body">
-                                <h5 class="card-title">Ba người thầy vĩ đại</h5>
-                                <p class="card-text">Ta xem vạn vật là thầy...</p>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="text-center mt-4"><a href="/" class="btn btn-primary">Xem thêm</a></div>
             </div>
@@ -300,12 +233,13 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import logo from '../assets/images/logo-energy-pilates.png';
 import banner1 from '../assets/images/banner1.jpg';
 import banner2 from '../assets/images/banner2.jpg';
 import banner3 from '../assets/images/banner3.jpg';
 import avatar from '../assets/images/avatar.png';
-import tagpilates from '../assets/images/tap-piltes.jpg';
+import tappilates from '../assets/images/tap-piltes.jpg';
 import corevalue from '../assets/images/corevalue.jpg';
 import orange from '../assets/images/orange_300x300.jpg';
 import spinach from '../assets/images/spinach_300x300.jpg';
@@ -315,30 +249,18 @@ import video2 from '../assets/images/video2.jpg';
 import video3 from '../assets/images/video3.jpg';
 import video4 from '../assets/images/video4.jpg';
 
-const items = (
-    [
-        { image: logo }, //0 
-        { image: banner1 }, //1 
-        { image: banner2 },//2
-        { image: banner3 }, //3
-        { image: avatar },//4
-        { image: tagpilates },//5
-        { image: corevalue },//6
-        { image: orange },//7
-        { image: sesameoil },//8
-        { image: spinach },//9
-        { image: video1 },//10
-        { image: video2 },//11
-        { image: video3 },//12
-        { image: video4 },//13
+const listBaiViet = ref ([
+    {title: 'Phương pháp tập Pilates giúp phục hồi chấn thương cột sống', img: tappilates, desc: 'Ngoài việc giúp duy trì vóc dáng, cải thiện sức bền và độ dẻo dai cho người tập...', views: 16},
+    {title: 'Biết ơn đời, đời sẽ thương ta', img: corevalue, desc: '', views: 30},
+    {title: '9 tác dụng tuyệt vời của quả cam', img: orange, desc: '', views: 28},
+    {title: 'Lợi ích khi ăn rau mỗi ngày' , img: spinach, desc: '', views: 15},
+    {title: '10 công dụng bất ngờ từ dầu dừa', img: sesameoil, desc: '', views: 12}
+])
 
-
-
-
-
-
-
-
-    ]
-)
+const listVideos = ref ([
+    {title: 'Đi xa hơn để trưởng thành hơn', src: video1, desc: 'Tuổi trẻ chỉ nghĩ đến những chuyến đi...'},
+    {title: 'Chút tâm tư những ngày cuối năm', src: video2, desc: 'Guồng quay cuộc sống...'},
+    {title: 'Ước gì được trở về tuổi thơ', src: video3, desc: 'Tuổi thơ...'},
+    {title: 'Ba người thầy vĩ đại', src: video4, desc: 'Ta xem vạn vật là thầy...'}
+])
 </script>
