@@ -1,88 +1,94 @@
-<style>
-    header {
-      background-color: aliceblue;
-      /* box-shadow: 1px 1px 2px 1px lightgray; */
-    }
-  
-    .nav-link {
-      color: black;
-    }
-  
-    .nav-link:hover {
-      color: green;
-    }
-  
-    .navbar-nav .nav-link.active,
-    .navbar-nav .nav-link.show {
-      color: green;
-    }
-  
-    .button-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    .footer-content {
-      color: white;
-      text-align: center;
-    }
-</style>
-
 <template>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <!-- Đăng ký -->
-            <div class="col-6">
-                <h2 class="text-center mb-4">Form Đăng Ký Thông Tin</h2>
-                <form class="card p-4">
-                    <div class="form-group mb-3">
-                        <label for="fullName">Họ và Tên</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Nhập họ và tên" required>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Nhập email" required>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="phoneNumber">Số Điện Thoại</label>
-                        <input type="text" class="form-control" id="phoneNumber" placeholder="Nhập số điện thoại" required>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="password">Mật Khẩu</label>
-                        <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" required>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="confirmPassword">Xác Nhận Mật Khẩu</label>
-                        <input type="password" class="form-control" id="confirmPassword" placeholder="Xác nhận mật khẩu" required>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label>Giới Tính</label><br>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="genderMale" value="male" required>
-                            <label class="form-check-label" for="genderMale">Nam</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="female" required>
-                            <label class="form-check-label" for="genderFemale">Nữ</label>
-                        </div>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="language">Ngôn Ngữ</label>
-                        <select class="form-control" id="language">
-                            <option>Tiếng Việt</option>
-                            <option>English</option>
-                        </select>
-                    </div>
-                    <div class="form-group form-check mb-3">
-                        <input type="checkbox" class="form-check-input" id="agreeTerms" required>
-                        <label class="form-check-label" for="agreeTerms">Đồng ý với các điều khoản</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100" formaction="/">Đăng Ký</button>
-                </form>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+      <div class="row w-100">
+        <div class="col-12 col-md-6 col-lg-4 mx-auto">
+          <div class="card shadow">
+            <div class="card-body">
+              <h2 class="card-title text-center mb-4">Đăng Ký</h2>
+              <form @submit.prevent="handleRegister">
+                <!-- Tên đăng nhập -->
+                <div class="mb-3">
+                  <label for="username" class="form-label">Tên đăng nhập</label>
+                  <input type="text" class="form-control" id="username" v-model="username" placeholder="Nhập tên đăng nhập" required />
+                  <div v-if="usernameExists" class="text-danger">Tên đăng nhập đã tồn tại.</div>
+                </div>
+                <!-- Email -->
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" v-model="email" placeholder="Nhập email" required />
+                  <div v-if="emailExists" class="text-danger">Email đã tồn tại.</div>
+                </div>
+                <!-- Mật khẩu -->
+                <div class="mb-3">
+                  <label for="password" class="form-label">Mật khẩu</label>
+                  <input type="password" class="form-control" id="password" v-model="password" placeholder="Nhập mật khẩu" required />
+                </div>
+                <!-- Số điện thoại -->
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Số điện thoại</label>
+                  <input type="tel" class="form-control" id="phone" v-model="phone" placeholder="Nhập số điện thoại" required pattern="^\d{10}$" />
+                  <small class="form-text text-muted">Nhập số điện thoại gồm 10 chữ số.</small>
+                </div>
+                <!-- Nút Đăng ký -->
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary" :disabled="usernameExists || emailExists">Đăng Ký</button>
+                </div>
+                <!-- Liên kết đến trang đăng nhập -->
+                <div class="mt-3 text-center">
+                  <p>Đã có tài khoản? <a href="#" @click="goToLogin">Đăng nhập ngay</a></p>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</template>
+  </template>
+  
+  
+<script>
+export default {
+  data() {
+    return {
+      username: '',
+      email: '',
+      password: '',
+      phone: '',
+      usernameExists: false,
+      emailExists: false
+    };
+  },
+  methods: {
+    handleRegister() {
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      
+      // Kiểm tra xem tên đăng nhập hoặc email đã tồn tại chưa
+      this.usernameExists = users.some(user => user.username === this.username);
+      this.emailExists = users.some(user => user.email === this.email);
+
+      if (!this.usernameExists && !this.emailExists) {
+        const newUser = {
+          username: this.username,
+          email: this.email,
+          password: this.password,
+          phone: this.phone,
+        };
+        
+        users.push(newUser); // Thêm người dùng mới vào danh sách
+        localStorage.setItem("users", JSON.stringify(users)); // Lưu lại danh sách người dùng
+        
+        // Lưu người dùng hiện tại vào localStorage
+        localStorage.setItem("user", JSON.stringify(newUser));
+
+        alert("Đăng ký thành công!");
+        this.$router.push("/login"); // Chuyển hướng đến trang đăng nhập
+      } else {
+        alert("Tên đăng nhập hoặc email đã tồn tại.");
+      }
+    },
+    goToLogin() {
+      this.$router.push("/login"); // Chuyển hướng đến trang đăng nhập
+    }
+  }
+};
+</script>

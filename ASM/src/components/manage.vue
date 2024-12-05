@@ -59,8 +59,8 @@
 
     <div class="container my-4">
         <h3 class="fw-bold">Quản lý bài viết</h3>
-        <div v-if="posts.length > 0">
-            <div v-for="post in posts" :key="post.id" class="card mb-3">
+        <div class="row" v-if="posts.length > 0">
+            <div v-for="post in posts" :key="post.id" class="card mb-3 col-3">
                 <div class="card-body">
                     <img :src="post.image" alt="Post Image" class="card-img-top" />
                     <h5 class="card-title">{{ post.title }}</h5>
